@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Study247 — India's Exam Prep Platform for Govt Jobs, Bank, SSC, UPSC & More</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#FFF5F5; --bg-pink:#FFEDED; --bg-grey:#F7F8F7;
+  --card:#ffffff; --ink:#141414; --ink2:#3D3D3D; --muted:#6B7280;
+  --line:#EBEBEB; --red:#E5262E; --red-dark:#B91C1C; --orange:#FF6A00; --pink:#E91E63;
+  --grad:linear-gradient(90deg,#FF7A18,#E91E63);
+  --shadow:0 10px 30px rgba(0,0,0,.07); --shadow-lg:0 20px 50px rgba(229,38,46,.12);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121212; --bg-soft:#1E1515; --bg-pink:#2A1A1A; --bg-grey:#181818; --card:#1C1C1C; --ink:#F5F5F5; --ink2:#D6D6D6; --muted:#9CA3AF; --line:#2E2E2E; --shadow:0 10px 30px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button,[role="button"],select,input{ min-height:44px }
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+h2 .accent,h1 .accent{color:var(--red)}
+.lead{color:var(--muted);font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font-weight:700;border-radius:999px;padding:0 22px;min-height:48px;transition:.2s}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(233,30,99,.25)}
+.btn-grad:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.btn-dark{background:#1F2430;color:#fff}
+.btn-outline{background:var(--card);border:1.5px solid var(--line);color:var(--ink)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:14px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#FFF3D6;color:#92400E;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E0EDFF;color:#1D4ED8}
+.tag.green{background:#DCFCE7;color:#166534}.tag.purple{background:#EDE9FE;color:#5B21B6}.tag.amber{background:#FEF3C7;color:#92400E}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:18px;height:68px}
+.logo{font-size:26px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.logo b{color:var(--red);font-weight:800}
+.logo span{background:var(--red);color:#fff;padding:1px 6px;border-radius:6px;font-size:22px;margin-left:2px}
+nav.main{display:flex;gap:4px;margin-left:8px;flex:1}
+nav.main a{font-size:14.5px;font-weight:600;color:var(--ink2);padding:10px 10px;border-radius:8px;white-space:nowrap}
+nav.main a:hover{color:var(--red);background:var(--bg-soft)}
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;cursor:pointer;font-size:18px}
+.hamburger{display:none}
+.mobile-nav{display:none;border-top:1px solid var(--line);padding:12px 20px 16px;background:var(--bg)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:12px 4px;font-weight:700;border-bottom:1px solid var(--line)}
+@media(max-width:980px){ nav.main{display:none} .hamburger{display:grid} .header-actions .btn-outline{display:none} }
+
+/* Hero */
+.hero{background:radial-gradient(900px 400px at 10% 0%,#FFF0F0 0%,transparent 60%),var(--bg);padding:42px 0 8px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,52px);font-weight:800;margin:16px 0 20px}
+.avatars{display:flex;align-items:center}
+.avatars i{width:32px;height:32px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:800;color:#fff;margin-right:-8px}
+.searchbar{display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:6px 6px 6px 18px;box-shadow:var(--shadow);max-width:560px}
+.searchbar input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);min-width:0;font-size:15px}
+.searchbar button{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:0 18px;font-weight:700;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer;min-height:38px}
+.chip:hover{border-color:var(--red);color:var(--red)}
+.promo{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);background:linear-gradient(135deg,#FFF7E6 0%,#FFE9EC 55%,#FFD6DE 100%);color:#141414;border:1px solid #FDE68A}
+.promo-in{padding:26px 26px 22px;position:relative}
+.promo-kicker{font-weight:800;font-size:15px}
+.promo-badge{display:inline-block;background:#FACC15;color:#111;font-weight:800;padding:3px 10px;border-radius:6px;margin:6px 0}
+.promo h3{font-size:38px;font-weight:800;line-height:1}
+.promo h3 em{font-style:normal;color:var(--red)}
+.promo-sub{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;font-size:12.5px;font-weight:700}
+.promo-sub span{background:#fff;border-radius:999px;padding:5px 10px}
+.promo-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;text-align:center;font-size:11.5px;font-weight:700;color:#444}
+.promo-feats b{display:grid;place-items:center;width:38px;height:38px;margin:0 auto 6px;background:#FFE4E6;border-radius:50%;font-size:18px}
+.dots{display:flex;gap:6px;justify-content:center;padding:12px 0 4px}
+.dots i{width:22px;height:5px;border-radius:99px;background:#111}
+.dots i+ i{width:6px;background:#D1D5DB}
+@media(max-width:860px){ .hero-grid{grid-template-columns:1fr} .promo h3{font-size:32px} }
+
+/* Stats */
+.stats{margin:28px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);padding:22px 10px}
+.stat{text-align:center;padding:6px}
+.stat b{font-size:26px;color:var(--red);display:block}
+.stat span{color:var(--muted);font-size:13.5px;font-weight:600}
+@media(max-width:700px){ .stats{grid-template-columns:1fr 1fr} }
+
+/* Sections */
+section{padding:56px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:1.5px solid var(--line);background:var(--card);padding:10px 18px;border-radius:999px;font-weight:700;cursor:pointer;min-height:44px}
+.tab.active{background:#171717;color:#fff;border-color:#171717}
+@media (prefers-color-scheme: dark){ .tab.active{background:#fff;color:#111;border-color:#fff} }
+.tab .count{background:var(--red);color:#fff;font-size:11px;padding:2px 7px;border-radius:99px;margin-left:6px}
+
+/* Categories */
+.cat-shell{background:var(--bg-pink);border:1px solid #FECACA;border-radius:22px;padding:20px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cat-card{background:var(--card);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;min-height:150px}
+.cat-card.wide{min-height:190px}
+.cat-top{display:flex;gap:12px;align-items:center}
+.cat-ic{width:44px;height:44px;border-radius:12px;background:#FFE4E6;display:grid;place-items:center;font-size:20px;flex:none}
+.cat-card h3{font-size:20px}
+.cat-card p{margin:0;color:var(--muted);font-size:13.5px}
+.cat-card .explore{margin-top:auto;font-weight:800;font-size:14px;color:var(--ink)}
+.cat-card .explore:hover{color:var(--red)}
+.cat-grid-small{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:860px){ .cat-grid,.cat-grid-small{grid-template-columns:1fr} }
+
+/* Live classes */
+.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.live-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.thumb{height:170px;display:flex;flex-direction:column;justify-content:center;padding:18px;color:#fff;position:relative;overflow:hidden}
+.thumb h4{font-size:26px;line-height:1.05;margin:4px 0;font-weight:800}
+.thumb .live-badge{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:4px 8px;border-radius:6px}
+.thumb .play{position:absolute;right:16px;bottom:14px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.95);color:#111;display:grid;place-items:center;font-size:16px}
+.live-body{padding:16px}
+.live-body h4{margin:0 0 4px;font-size:17px}
+.live-body p{margin:0;color:var(--muted);font-size:13.5px}
+.live-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
+.countdown{color:var(--red);font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
+select.filter{border:1.5px solid var(--line);border-radius:999px;padding:0 14px;background:var(--card);color:var(--ink);font-weight:700;cursor:pointer}
+@media(max-width:900px){ .live-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .live-grid{grid-template-columns:1fr} }
+
+/* Courses */
+.course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.course h3{font-size:19px;min-height:48px}
+.course-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;border-top:1px solid var(--line);padding-top:12px;text-align:left}
+.course-meta b{display:block;font-size:15px}
+.course-meta span{font-size:11.5px;color:var(--muted);font-weight:600}
+.price-row{display:flex;align-items:baseline;gap:8px}
+.price-row b{font-size:20px}
+.price-row s{color:var(--muted)} .price-row em{font-style:normal;color:#16A34A;font-weight:800;font-size:13px}
+@media(max-width:1000px){ .course-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:560px){ .course-grid{grid-template-columns:1fr} }
+.logos{display:flex;flex-wrap:wrap;gap:14px 34px;align-items:center;color:var(--muted);font-weight:800;font-size:20px;opacity:.85}
+.logos span{letter-spacing:-.02em}
+
+/* Prime + Books + Quiz */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+@media(max-width:860px){ .split{grid-template-columns:1fr} }
+.feat{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.feat:last-child{border:0}
+.feat-ic{width:48px;height:48px;flex:none;border-radius:12px;background:#FFE4E6;display:grid;place-items:center;font-size:20px}
+.feat b{display:block;font-size:16px}.feat p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.prime-visual{background:radial-gradient(circle at 50% 40%,#FFF1F2 0 180px,#FFE4E6 181px 260px,transparent 261px);min-height:320px;display:grid;place-items:center;text-align:center;padding:20px}
+.prime-visual .big{font-size:64px}
+.chip-float{display:inline-block;background:#111;color:#fff;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;margin:4px}
+.books-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end}
+.book{border-radius:8px 14px 14px 8px;color:#fff;padding:16px 12px;min-height:210px;display:flex;flex-direction:column;justify-content:end;font-weight:800;line-height:1.1;box-shadow:var(--shadow)}
+.book small{font-weight:700;background:#FACC15;color:#111;padding:2px 6px;border-radius:4px;width:fit-content;margin-bottom:6px}
+.book span{font-size:12px;font-weight:600;opacity:.9}
+@media(max-width:560px){ .books-visual{grid-template-columns:1fr 1fr} .book{min-height:160px} }
+
+/* Languages */
+.lang-row{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.lang{border-radius:16px;padding:20px 14px;min-height:170px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.lang b{font-size:24px;line-height:1.1}
+.lang span{font-size:13px;font-weight:700;opacity:.95}
+.lang .mono{font-size:44px;opacity:.28;font-weight:800;line-height:1}
+@media(max-width:900px){ .lang-row{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:520px){ .lang-row{grid-template-columns:1fr 1fr} }
+
+/* Quiz */
+.quiz{background:#171717;color:#fff;border-radius:22px;padding:28px}
+@media (prefers-color-scheme: dark){ .quiz{background:#1E1E1E;border:1px solid var(--line)} }
+.quiz h3{font-size:24px;margin-bottom:6px}
+.quiz p.sub{color:#C7C7C7;margin:0 0 18px}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.18);color:#fff;border-radius:12px;padding:14px 16px;margin:10px 0;cursor:pointer;font-weight:600}
+.opt:hover{border-color:#fff}
+.opt.correct{background:#14532D;border-color:#22C55E}
+.opt.wrong{background:#450A0A;border-color:#EF4444}
+.opt:disabled{cursor:default;opacity:.95}
+.quiz-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.progress{height:8px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;margin-bottom:18px}
+.progress i{display:block;height:100%;background:var(--grad);width:20%;transition:.3s}
+
+/* App banner */
+.app-banner{background:linear-gradient(135deg,#DC2626,#991B1B);color:#fff;border-radius:24px;padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;overflow:hidden}
+.app-banner h2{color:#fff}
+.app-feat{display:flex;gap:12px;margin:16px 0}
+.app-feat i{width:40px;height:40px;flex:none;background:rgba(255,255,255,.18);border-radius:10px;display:grid;place-items:center;font-style:normal}
+.app-feat b{display:block}.app-feat span{opacity:.85;font-size:13.5px}
+.store-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.store-btn{background:#000;color:#fff;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center;min-height:48px}
+.phone{background:#fff;color:#111;border-radius:28px;padding:22px;text-align:center;max-width:280px;margin:auto;width:100%;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.qr{width:160px;height:160px;margin:14px auto;border:8px solid #fff;outline:1.5px solid #E5E7EB;border-radius:8px;object-fit:contain;background:#fff}
+@media(max-width:860px){ .app-banner{grid-template-columns:1fr} }
+
+/* Toppers / FAQ / Footer */
+.topper-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.topper{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.topper .who{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;flex:none}
+.topper p{color:var(--muted);font-size:14px;margin:0}
+.topper .exam{font-weight:800;color:var(--red);font-size:13px}
+@media(max-width:860px){ .topper-grid{grid-template-columns:1fr} }
+details{border:1px solid var(--line);border-radius:14px;padding:6px 18px;margin:10px 0;background:var(--card)}
+summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none}
+details p{color:var(--muted);margin:0 0 14px}
+footer{background:#111827;color:#D1D5DB;padding:48px 0 28px;margin-top:20px}
+footer h4{color:#fff;margin:0 0 14px;font-size:16px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer a{display:block;padding:5px 0;font-size:14px;color:#D1D5DB}
+footer a:hover{color:#fff}
+.foot-bottom{border-top:1px solid #374151;margin-top:28px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#9CA3AF}
+@media(max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr} }
+.notice{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E;border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:600}
+@media (prefers-color-scheme: dark){ .notice{background:#29200A;color:#FCD34D;border-color:#57500A} }
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="Study247 home">Study<b>247</b><span>✓</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#categories">Government Jobs ▾</a>
+      <a href="#categories">College Entrance ▾</a>
+      <a href="#courses">Private Jobs &amp; Upskilling ▾</a>
+      <a href="#categories">UPSC, PSC &amp; Judiciary ▾</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="document.getElementById('heroSearch').focus();window.scrollTo({top:0,behavior:'smooth'})" aria-label="Search">⌕</button>
+      <a class="btn btn-outline btn-sm" href="#app">Offline Centres</a>
+      <button class="btn btn-dark btn-sm" onclick="openLogin()">Login</button>
+      <button class="icon-btn hamburger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mnav">
+    <a href="#categories" onclick="closeMobileNav()">Government Jobs</a><a href="#categories" onclick="closeMobileNav()">College Entrance Exams</a><a href="#courses" onclick="closeMobileNav()">Private Jobs &amp; Upskilling</a><a href="#live" onclick="closeMobileNav()">Free Live Classes</a><a href="#quiz" onclick="closeMobileNav()">Daily Quiz</a><a href="#app" onclick="closeMobileNav()">Download App</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="pill"><span class="avatars"><i style="background:#E5262E">A</i><i style="background:#2563EB">S</i><i style="background:#16A34A">R</i></span> 10 M+ Students Trust Us</span>
+          <h1>India's <span class="accent">Most Trusted</span> Platform for Government Exams, Private Jobs &amp; Upskilling</h1>
+          <form class="searchbar" onsubmit="return doSearch(event)">
+            <span aria-hidden="true">⌕</span>
+            <input id="heroSearch" type="search" placeholder="Find Live Class, Test Series, Books and Video courses" aria-label="Search courses">
+            <button type="submit">Search</button>
+          </form>
+          <div class="chips" id="quickChips">
+            <button class="chip" onclick="quickSearch('IBPS PO')">⌕ IBPS PO</button>
+            <button class="chip" onclick="quickSearch('SBI Clerk')">⌕ SBI Clerk</button>
+            <button class="chip" onclick="quickSearch('RBI Grade B')">⌕ RBI Grade B</button>
+            <button class="chip" onclick="quickSearch('SSC CGL')">⌕ SSC CGL</button>
+            <button class="chip" onclick="quickSearch('UPSC')">⌕ UPSC CSE</button>
+            <button class="chip" onclick="quickSearch('Railways')">⌕ RRB NTPC</button>
+          </div>
+          <p id="searchMsg" class="lead" style="margin-top:12px;font-size:14px"></p>
+        </div>
+        <div class="promo" aria-label="Featured pack">
+          <div class="promo-in">
+            <div class="promo-kicker">Banking Preparation Ka</div>
+            <span class="promo-badge">All-in-One Pack</span>
+            <h3>BANK <em>MAHAPACK</em></h3>
+            <div class="promo-sub"><span>Covers Prelims + Mains</span><span style="background:#111;color:#fff">2027 Foundation Batches Included</span></div>
+            <div class="promo-feats">
+              <div><b>👩‍🏫</b>Expert Faculty Guidance</div>
+              <div><b>📝</b>Test Series</div>
+              <div><b>📚</b>E-Books</div>
+              <div><b>💬</b>Doubt Support</div>
+            </div>
+            <a class="btn btn-grad" href="#courses" style="background:#991B1B;box-shadow:none">Join Now →</a>
+            <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>4 Crore+</b><span>Monthly Active Users</span></div>
+        <div class="stat"><b>10 Lakhs+</b><span>Student Selections</span></div>
+        <div class="stat"><b>400+</b><span>YouTube Channels</span></div>
+        <div class="stat"><b>350 Crore+</b><span>Monthly YouTube Views</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="wrap">
+      <h2 style="margin-bottom:20px">What are you preparing for?</h2>
+      <div class="tabs" role="tablist" style="margin-bottom:16px">
+        <button class="tab active" data-cat-tab="govt" onclick="switchCat(this)">🏛️ Government Jobs</button>
+        <button class="tab" data-cat-tab="college" onclick="switchCat(this)">🎓 College Entrance Exams</button>
+        <button class="tab" data-cat-tab="private" onclick="switchCat(this)">💼 Private Jobs &amp; Upskilling</button>
+        <button class="tab" data-cat-tab="upsc" onclick="switchCat(this)">⚖️ UPSC, PSC &amp; Judiciary</button>
+      </div>
+
+      <div class="cat-shell" id="cat-govt">
+        <div class="cat-grid">
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">🏦</span><h3>Banking Exams</h3></div><p>SBI • IBPS • RRB • RBI • NABARD • JAIIB • CAIIB Exams</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">🚆</span><h3>SSC &amp; Railway Exams</h3></div><p>SSC CGL • CHSL • Railways • Other SSC • Police Exams</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+        </div>
+        <div class="cat-grid-small">
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🌾</span><h3>Agri &amp; Food Science</h3></div><p>IBPS AFO • FSSAI • FCI • ICAR UG/PG • ASRB NET</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🛠️</span><h3>Engineering Exams</h3></div><p>SSC JE • RRB JE • All State &amp; Central Level JE/AE Exams</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🗺️</span><h3>State Exams</h3></div><p>State PSC • Other State Level Exams • WBCS • BPSC • UPPSC</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">👩‍🏫</span><h3>Teaching &amp; UGC Exams</h3></div><p>CTET • UGC NET • State TET • KVS • DSSSB</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🩺</span><h3>Nursing &amp; Pharma Exams</h3></div><p>Nursing • PHARMA • Nursing Entrance • AIIMS NORCET</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🛡️</span><h3>Defence Exams</h3></div><p>NDA • CDS • AFCAT • Agniveer • CAPF</p><a class="explore" href="#live">Explore Exams ›</a></article>
+        </div>
+      </div>
+
+      <div class="cat-shell hidden" id="cat-college">
+        <div class="cat-grid">
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">⚕️</span><h3>NEET &amp; Medical</h3></div><p>NEET UG • NEET PG • AIIMS • Nursing Entrance</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">⚙️</span><h3>JEE &amp; Engineering Entrance</h3></div><p>JEE Main • JEE Advanced • State CETs • BITSAT</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+        </div>
+        <div class="cat-grid-small">
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">📐</span><h3>CUET &amp; University Entrance</h3></div><p>CUET UG • CUET PG • Central University Admissions</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">⚖️</span><h3>Law Entrance</h3></div><p>CLAT • AILET • State Law CETs</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">📊</span><h3>Management Entrance</h3></div><p>CAT • XAT • CMAT • IPMAT</p><a class="explore" href="#live">Explore Exams ›</a></article>
+        </div>
+      </div>
+
+      <div class="cat-shell hidden" id="cat-private">
+        <div class="cat-grid">
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">🤖</span><h3>AI &amp; Data Jobs</h3></div><p>Data Analytics with GenAI • Data Science • Business Analyst • Prompt Engineering</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Courses</span></a></article>
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">🏦</span><h3>Banking &amp; Finance Jobs</h3></div><p>Priority Banking Program • Relationship Manager • BFSI Certification</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Courses</span></a></article>
+        </div>
+        <div class="cat-grid-small">
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">💻</span><h3>IT &amp; Software</h3></div><p>Full-Stack • Cloud • DevOps • Testing</p><a class="explore" href="#courses">Explore Courses ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">📈</span><h3>Digital Marketing</h3></div><p>SEO • Ads • Content • Analytics</p><a class="explore" href="#courses">Explore Courses ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🗣️</span><h3>Spoken English &amp; Skills</h3></div><p>Interview Skills • Communication • Aptitude</p><a class="explore" href="#courses">Explore Courses ›</a></article>
+        </div>
+      </div>
+
+      <div class="cat-shell hidden" id="cat-upsc">
+        <div class="cat-grid">
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">🏛️</span><h3>UPSC Civil Services</h3></div><p>IAS • IPS • IFS — Prelims, Mains &amp; Interview, in English &amp; Hindi</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+          <article class="cat-card wide"><div class="cat-top"><span class="cat-ic">⚖️</span><h3>Judiciary Exams</h3></div><p>State Judicial Services • PCS-J • Law Officer Exams</p><a class="explore" href="#courses"><span class="btn btn-grad btn-sm">Explore Exams</span></a></article>
+        </div>
+        <div class="cat-grid-small">
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🗺️</span><h3>State PSC</h3></div><p>WBCS • BPSC • UPPSC • MPSC • TNPSC &amp; more</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">🌍</span><h3>Other UPSC Exams</h3></div><p>CDS • NDA • CAPF • EPFO • ESE</p><a class="explore" href="#live">Explore Exams ›</a></article>
+          <article class="cat-card"><div class="cat-top"><span class="cat-ic">📰</span><h3>Daily Current Affairs</h3></div><p>Daily PDFs • Monthly Magazine • MCQ Practice</p><a class="explore" href="#quiz">Start Practising ›</a></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE CLASSES -->
+  <section id="live" style="background:var(--bg-grey)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tabs">
+          <button class="tab active" id="tabClasses" onclick="switchLive('classes')">Free Live Classes <span class="count">13</span></button>
+          <button class="tab" id="tabTests" onclick="switchLive('tests')">Free Live Test <span class="count" style="background:#6B7280">12</span></button>
+        </div>
+        <label style="font-weight:700;color:var(--muted)">Exam: <select class="filter" id="examFilter" onchange="filterLive()"><option value="all">All</option><option value="bank">Banking</option><option value="ssc">SSC &amp; Railways</option><option value="upsc">UPSC &amp; State</option><option value="teaching">Teaching</option></select></label>
+      </div>
+
+      <div class="live-grid" id="liveGrid"></div>
+      <div style="display:flex;justify-content:center;gap:10px;margin-top:22px">
+        <button class="icon-btn" onclick="pageLive(-1)" aria-label="Previous">‹</button>
+        <button class="icon-btn" onclick="pageLive(1)" aria-label="Next">›</button>
+      </div>
+      <p id="liveEmpty" class="lead hidden" style="text-align:center;margin-top:16px">No classes in this category on this page — try another exam filter.</p>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2><span class="accent">AI Tech Certification</span> &amp; Banking Jobs Courses</h2><p class="lead" style="margin:8px 0 0">Job-ready programs built with hiring partners. In partnership with: <b style="color:var(--ink)">NASSCOM • IBM • PwC • Google Cloud</b></p></div>
+      </div>
+      <div class="course-grid" id="courseGrid"></div>
+
+      <h3 style="font-size:26px;margin:44px 0 18px">Top companies hiring our graduates</h3>
+      <div class="logos"><span>KPMG</span><span style="color:#06B6D4">simplilearn</span><span style="color:#2563EB">Infosys</span><span>Whatfix</span><span style="color:#E5262E">upGrad</span><span style="color:#1D4ED8">SAMSUNG</span><span style="color:#111">amazon</span><span style="color:#111">Deloitte.</span><span>TCS</span><span style="color:#7C3AED">Accenture</span></div>
+    </div>
+  </section>
+
+  <!-- TEST PRIME -->
+  <section style="background:var(--bg-soft)">
+    <div class="wrap split">
+      <div>
+        <p style="font-weight:800;margin:0 0 8px">Test <span style="background:#FACC15;padding:2px 8px;border-radius:4px">Prime</span></p>
+        <h2><span class="accent">One Subscription,</span><br>Every Mock Test You Need</h2>
+        <div style="margin-top:14px">
+          <div class="feat"><span class="feat-ic">🎯</span><div><b>1 Lakh+ Mock Tests</b><p>Full mocks, sectional tests and topic tests for every major exam.</p></div></div>
+          <div class="feat"><span class="feat-ic">📄</span><div><b>25,000+ Previous Year Papers</b><p>Learn from previous year question papers with detailed solutions.</p></div></div>
+          <div class="feat"><span class="feat-ic">🏆</span><div><b>800+ Exam Coverage</b><p>One subscription, every exam you're targeting — Bank, SSC, Railways, UPSC &amp; State.</p></div></div>
+        </div>
+        <div class="price-row" style="margin:18px 0"><b>₹499</b><s>₹1,999</s><em>75% OFF — 12 months</em></div>
+        <button class="btn btn-grad" onclick="showToast('Test Prime added — 1 lakh+ mock tests unlocked in this demo view.')">Explore Test Prime</button>
+      </div>
+      <div class="prime-visual" aria-hidden="true">
+        <div><div class="big">🎓</div><div><span class="chip-float">500+ exams covered</span><span class="chip-float">1 lakh+ mock tests</span></div><p style="font-weight:800;font-size:20px;margin:10px 0 0">Practice. Analyse. Improve.</p><p class="lead">All-India rank, percentile &amp; detailed solutions after every test.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section>
+    <div class="wrap split">
+      <div class="books-visual" aria-hidden="true">
+        <div class="book" style="background:#DC2626"><small>TIER 1</small>SSC CGL<span>Complete Guide</span></div>
+        <div class="book" style="background:#6D28D9"><small>TIER 2</small>SSC CGL<span>Practice Book</span></div>
+        <div class="book" style="background:#15803D"><small>PO</small>BANK<span>Complete Guide</span></div>
+        <div class="book" style="background:#1E3A5F"><small>PRELIMS</small>UPSC<span>General Studies</span></div>
+      </div>
+      <div>
+        <h2>Prepare Smarter with <span class="accent">Study247 Books</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0;text-align:center">
+          <div><span class="feat-ic" style="margin:0 auto 8px">📚</span><b style="font-size:14px">Exam Focused Content</b></div>
+          <div><span class="feat-ic" style="margin:0 auto 8px">📖</span><b style="font-size:14px">Latest Syllabus &amp; Pattern</b></div>
+          <div><span class="feat-ic" style="margin:0 auto 8px">👍</span><b style="font-size:14px">Practice, Analyse, Improve</b></div>
+        </div>
+        <p class="lead">Recommended by top rankers — printed books with chapter-wise theory, solved papers and practice sets, delivered across India.</p>
+        <button class="btn btn-grad" style="margin-top:14px" onclick="showToast('Books Store: SSC CGL, Bank PO and UPSC titles shown above are the featured guides.')">Explore Books Store</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section style="background:var(--bg-grey)">
+    <div class="wrap">
+      <div class="section-head"><h2>Prepare For State Exams, In Your <span class="accent">Local Language</span></h2><p class="lead" style="max-width:420px;margin:0">Live classes, study material, and practice tests available in 12+ languages — built for every aspirant, everywhere.</p></div>
+      <div class="lang-row">
+        <div class="lang" style="background:linear-gradient(160deg,#0EA5E9,#1E3A5F)"><span class="mono">Aa</span><b>English</b><span>All India Exams</span></div>
+        <div class="lang" style="background:linear-gradient(160deg,#F59E0B,#B45309)"><span class="mono" lang="hi">हिं</span><b lang="hi">हिन्दी</b><span>UP • Bihar • MP • Rajasthan</span></div>
+        <div class="lang" style="background:linear-gradient(160deg,#059669,#064E3B)"><span class="mono" lang="bn">বাং</span><b lang="bn">বাংলা</b><span>West Bengal • WBCS • SSC</span></div>
+        <div class="lang" style="background:linear-gradient(160deg,#DC2626,#7F1D1D)"><span class="mono" lang="ta">தமி</span><b lang="ta">தமிழ்</b><span>Tamil Nadu • TNPSC</span></div>
+        <div class="lang" style="background:linear-gradient(160deg,#7C3AED,#4C1D95)"><span class="mono" lang="te">తెలు</span><b lang="te">తెలుగు</b><span>AP • Telangana</span></div>
+        <div class="lang" style="background:linear-gradient(160deg,#DB2777,#831843)"><span class="mono" lang="mr">मरा</span><b lang="mr">मराठी</b><span>Maharashtra • MPSC</span></div>
+      </div>
+      <div style="text-align:center;margin-top:22px"><a class="btn btn-grad" href="#categories">Explore courses in your language</a></div>
+    </div>
+  </section>
+
+  <!-- QUIZ + TOPPERS -->
+  <section id="quiz">
+    <div class="wrap split" style="align-items:start">
+      <div class="quiz" id="quizBox">
+        <p style="margin:0 0 6px;font-weight:800;color:#FCA5A5;font-size:13px;letter-spacing:.06em">DAILY QUIZ • FREE</p>
+        <h3 id="quizTitle">Today's Practice Quiz</h3>
+        <p class="sub" id="quizSub">5 questions • Reasoning, Quant &amp; GK — the mix every Bank &amp; SSC paper starts with.</p>
+        <div class="progress"><i id="quizBar"></i></div>
+        <div id="quizBody"></div>
+        <div class="quiz-foot"><span id="quizScore" style="font-weight:700">Question 1 of 5</span><button class="btn btn-grad btn-sm" id="quizNext" onclick="nextQ()" disabled>Next →</button></div>
+      </div>
+      <div>
+        <h2 style="font-size:30px;margin-bottom:16px">Selections that started with <span class="accent">one free class</span></h2>
+        <div style="display:grid;gap:14px">
+          <article class="topper"><div class="who"><span class="avatar" style="background:#E5262E">PS</span><div><b>Priya Sharma</b><div class="exam">IBPS PO • 2025 Batch</div></div></div><p>"The Mahapack covered Prelims and Mains in one place. The sectional mocks told me exactly which topics were costing me marks."</p></article>
+          <article class="topper"><div class="who"><span class="avatar" style="background:#2563EB">AK</span><div><b>Amit Kumar</b><div class="exam">SSC CGL • Tier 2 Qualified</div></div></div><p>"I prepared in Hindi from my hometown. Daily current affairs PDFs and previous year papers were my whole revision plan in the last month."</p></article>
+          <article class="topper"><div class="who"><span class="avatar" style="background:#16A34A">SD</span><div><b>Sneha Das</b><div class="exam">WBCS • West Bengal</div></div></div><p>"State exam content in Bangla is rare — here the live classes, notes and mock tests were all in my language."</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <section id="app" style="padding-top:0">
+    <div class="wrap">
+      <div class="app-banner">
+        <div>
+          <div style="font-weight:800;font-size:20px;margin-bottom:8px">Study<span style="background:#fff;color:#DC2626;padding:1px 6px;border-radius:5px;margin-left:3px">247</span></div>
+          <h2>Download the App</h2>
+          <div class="app-feat"><i>★</i><div><b>4.5 Star Rated</b><span>On Play Store with 2.4+ lakh ratings</span></div></div>
+          <div class="app-feat"><i>⬇</i><div><b>Download &amp; Learn Offline</b><span>Works even on low network</span></div></div>
+          <div class="app-feat"><i>📖</i><div><b>Free Content</b><span>Daily updated free content library</span></div></div>
+          <div class="app-feat"><i>✎</i><div><b>Practice Test</b><span>New test uploaded daily across every major exam</span></div></div>
+          <div class="store-btns"><a class="store-btn" href="#app"> Download on the App Store</a><a class="store-btn" href="#app">▶ GET IT ON Google Play</a></div>
+        </div>
+        <div class="phone"><b>Scan the QR code to open the reference site</b><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAAEiAQMAAABncE31AAAABlBMVEURERH////YdsArAAABSklEQVR42u2aQRKDMAhFmXqAHMmr50geIDPUEEjQlV1AZ9qfha2W1Qv5fLDED1YlRCHq16IO0rUfG8st18JsT89n9UVPFqI+i+rst7EPtMtHZ+9vwT6WvaS3wCYqSvw8BnYWwD6e/VVzwD6VfcdOYP8NvbddUM2B3sez9z7HXeBz4tmvNS3OSP7lRMErUnMs0c1eNv8r2Iflfedcmq+6U4yk6oJ9qM+RRO8X3QpReakB0JzgWuulXhK96De9Ba84zTHslvJsxwA+J6e3Gm0V38os8j7YYw59GTOFfgwq9D6R/ZgkNG2whtTTBr1PqLV19rU6U5i9LvI+qa/1M4U16AH7jHnORXh2sM+ZKaxJwqq6sinQ+wyP6ZUGep/Nfoo+rb4WvVUSe21kLeUbZmmZeu/znqD3iT5HulnrqNZbFLCP9/f4Lxmi/iTqDU88s8pfGJu0AAAAAElFTkSuQmCC" alt="QR code linking to adda247.com, the reference website for this demo" width="160" height="160"><p style="margin:0;color:#6B7280;font-size:13px;font-weight:600">This demo QR opens adda247.com — the site this page is modelled on.<br>Free Live Classes • Daily Current Affairs • Mock Tests</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding-top:0">
+    <div class="wrap" style="max-width:820px">
+      <h2 style="text-align:center;margin-bottom:8px">Frequently Asked <span class="accent">Questions</span></h2>
+      <p class="lead" style="text-align:center;margin-bottom:20px">Everything aspirants ask before joining.</p>
+      <details><summary>Which exams does Study247 cover?</summary><p>Banking (SBI, IBPS, RBI, NABARD), SSC &amp; Railways, UPSC &amp; State PSC, Teaching, Defence, Engineering, Nursing, plus NEET, JEE and private-job upskilling courses — 800+ exams in total.</p></details>
+      <details><summary>Are the live classes really free?</summary><p>Yes — daily free live classes and a free live test run every day for every major exam. Paid batches add recorded lessons, doubt support, e-books and the full test series.</p></details>
+      <details><summary>What is Test Prime?</summary><p>One subscription that unlocks 1 lakh+ mock tests and 25,000+ previous year papers across all exams, with All-India rank and detailed solutions after every test.</p></details>
+      <details><summary>Can I study in my own language?</summary><p>Yes. Courses run in 12+ languages including Hindi, Bangla, Tamil, Telugu, Marathi and English, with state-exam batches taught by local faculty.</p></details>
+      <details><summary>Do you have offline centres?</summary><p>Yes — offline centres run classroom batches for Bank, SSC and State exams in major cities. Use the Offline Centres option in the header to find one near you.</p></details>
+      <div class="notice" style="margin-top:18px">Demo note: This is a front-end showcase inspired by Adda247's layout. Prices, counts and schedules are illustrative — no real enrolment or payment happens on this page.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="logo" style="color:#fff">Study<b style="color:#F87171">247</b><span>✓</span></div><p style="font-size:14px;max-width:300px">India's trusted platform for Government Exams, Private Jobs &amp; Upskilling. Ensuring every learner gets a fair chance at livelihood.</p></div>
+      <div><h4>Exams</h4><a href="#categories">Banking Exams</a><a href="#categories">SSC &amp; Railways</a><a href="#categories">UPSC &amp; PSC</a><a href="#categories">Teaching Exams</a><a href="#categories">Defence Exams</a></div>
+      <div><h4>Products</h4><a href="#live">Free Live Classes</a><a href="#courses">Video Courses</a><a href="#quiz">Test Prime</a><a href="#top">Books Store</a><a href="#app">Download App</a></div>
+      <div><h4>Company</h4><a href="#top">About Us</a><a href="#top">Careers</a><a href="#app">Offline Centres</a><a href="#top">Contact Us</a><a href="#top">Privacy Policy</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Study247 — Demo website built for illustration.</span><span>Made for aspirants across India 🇮🇳</span></div>
+  </div>
+</footer>
+
+<!-- Login modal -->
+<div id="loginModal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;display:grid;place-items:center;padding:20px" role="dialog" aria-modal="true" aria-label="Login">
+  <div style="background:var(--card);color:var(--ink);border-radius:20px;padding:28px;max-width:400px;width:100%">
+    <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:22px">Welcome back 👋</h3><button class="icon-btn" onclick="closeLogin()" aria-label="Close">✕</button></div>
+    <p class="lead" style="font-size:14px">Login to continue your preparation — your classes, tests and progress in one place.</p>
+    <label style="font-weight:700;font-size:14px;display:block;margin-top:14px">Mobile Number<input id="loginPhone" type="tel" placeholder="Enter 10-digit mobile number" style="width:100%;margin-top:6px;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;background:var(--bg);color:var(--ink)"></label>
+    <button class="btn btn-grad" style="width:100%;margin-top:16px" onclick="submitLogin()">Get OTP →</button>
+    <p id="loginMsg" style="font-size:13.5px;font-weight:700;color:#16A34A;margin:12px 0 0"></p>
+    <p style="font-size:12px;color:var(--muted);margin:10px 0 0">Demo login — no real OTP is sent and nothing is stored.</p>
+  </div>
+</div>
+<div id="toast" class="hidden" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111;color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;font-size:14px;z-index:120;max-width:92vw;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.3)"></div>
+
+<script>
+/* ---------- Live classes data ---------- */
+var liveData = {
+  classes: [
+    {cat:'bank', grad:'linear-gradient(135deg,#4C1D95,#7C3AED)', kicker:'Rapid Revision • RRB Clerk 2026', title:'Practice Class: 1', teacher:'Shubham Srivastava', subject:'Verbal Reasoning', secs: 8*3600+16*60+9},
+    {cat:'bank', grad:'linear-gradient(135deg,#111827,#DC2626)', kicker:'PAID COURSE FREE • MATHS', title:'Introduction — Maths Live Class by Expert Faculty', teacher:'Ashish Kumar Singh', subject:'Quantitative Aptitude', secs: 9*3600+44*60+9},
+    {cat:'bank', grad:'linear-gradient(135deg,#052E16,#16A34A)', kicker:'PAID COURSE FREE • REASONING', title:'Introduction — Reasoning Live Class by Expert', teacher:'Atul Awasthi', subject:'Verbal Reasoning', secs: 12*3600+16*60+9},
+    {cat:'ssc', grad:'linear-gradient(135deg,#7C2D12,#EA580C)', kicker:'FREE • SSC CGL FOUNDATION', title:'English: Error Spotting Marathon', teacher:'Neha Verma', subject:'English Language', secs: 5*3600+30*60},
+    {cat:'ssc', grad:'linear-gradient(135deg,#1E3A5F,#2563EB)', kicker:'FREE • RRB NTPC', title:'General Science: 500 Most Expected MCQs', teacher:'Rohit Yadav', subject:'General Awareness', secs: 6*3600+45*60},
+    {cat:'upsc', grad:'linear-gradient(135deg,#831843,#DB2777)', kicker:'FREE • UPSC PRELIMS 2027', title:'Polity: Fundamental Rights — Complete Revision', teacher:'Kavita Rao', subject:'Indian Polity', secs: 10*3600+5*60},
+    {cat:'teaching', grad:'linear-gradient(135deg,#713F12,#CA8A04)', kicker:'FREE • CTET PAPER 1', title:'Child Pedagogy: Learning Theories Simplified', teacher:'Manish Gupta', subject:'Child Development', secs: 7*3600+20*60},
+    {cat:'bank', grad:'linear-gradient(135deg,#134E4A,#0D9488)', kicker:'FREE • IBPS PO', title:'Data Interpretation: Table & Bar Graph Tricks', teacher:'Sana Sheikh', subject:'Quantitative Aptitude', secs: 11*3600+11*60},
+    {cat:'upsc', grad:'linear-gradient(135deg,#312E81,#4F46E5)', kicker:'FREE • WBCS / STATE PSC', title:'History: Freedom Movement in Bengal', teacher:'Arindam Sen', subject:'History', secs: 13*3600+2*60}
+  ],
+  tests: [
+    {cat:'bank', grad:'linear-gradient(135deg,#991B1B,#E5262E)', kicker:'LIVE TEST • IBPS CLERK', title:'All-India Live Mock: Prelims Pattern', teacher:'Test Prime Team', subject:'Full Mock Test', secs: 2*3600+15*60},
+    {cat:'ssc', grad:'linear-gradient(135deg,#9A3412,#F97316)', kicker:'LIVE TEST • SSC CGL', title:'Tier 1 Live Test — Rank Predictor', teacher:'Test Prime Team', subject:'Full Mock Test', secs: 3*3600+40*60},
+    {cat:'ssc', grad:'linear-gradient(135deg,#065F46,#10B981)', kicker:'LIVE TEST • RRB NTPC', title:'CBT-1 Scholarship Live Test', teacher:'Test Prime Team', subject:'Full Mock Test', secs: 4*3600+55*60},
+    {cat:'upsc', grad:'linear-gradient(135deg,#581C87,#9333EA)', kicker:'LIVE TEST • UPSC', title:'Prelims GS Live Test — Paper 1', teacher:'Test Prime Team', subject:'General Studies', secs: 5*3600+25*60},
+    {cat:'teaching', grad:'linear-gradient(135deg,#854D0E,#EAB308)', kicker:'LIVE TEST • CTET', title:'Paper 2 Live Test — Social Studies', teacher:'Test Prime Team', subject:'Full Mock Test', secs: 6*3600+10*60},
+    {cat:'bank', grad:'linear-gradient(135deg,#0C4A6E,#0284C7)', kicker:'LIVE TEST • SBI PO', title:'Mains Level Live Test — Reasoning', teacher:'Test Prime Team', subject:'Sectional Test', secs: 7*3600+35*60}
+  ]
+};
+var liveMode='classes', livePage=0;
+function fmt(s){ s=Math.max(0,s); var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60; return (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(x<10?'0':'')+x; }
+function renderLive(){
+  var filter=document.getElementById('examFilter').value;
+  var items=liveData[liveMode].filter(function(it){ return filter==='all'||it.cat===filter; });
+  var per=6, pages=Math.max(1,Math.ceil(items.length/per));
+  if(livePage>=pages) livePage=0; if(livePage<0) livePage=pages-1;
+  var slice=items.slice(livePage*per, livePage*per+per);
+  var grid=document.getElementById('liveGrid');
+  grid.innerHTML=slice.map(function(it,i){
+    return '<article class="live-card"><div class="thumb" style="background:'+it.grad+'"><small style="font-weight:800;letter-spacing:.04em">'+it.kicker+'</small><h4>'+it.title.split('—')[0]+'</h4><span class="live-badge">'+(liveMode==='classes'?'FREE LIVE':'LIVE TEST')+'</span><span class="play">▶</span></div><div class="live-body"><h4>'+it.title+'</h4><p>'+it.teacher+'</p><div class="live-foot"><span class="tag">'+it.subject+'</span><span class="countdown" data-secs="'+it.secs+'">Live in '+fmt(it.secs)+'</span></div><button class="btn btn-outline btn-sm" style="width:100%;margin-top:12px" onclick="showToast(\'Reminder set for: '+it.title.replace(/'/g,'')+'\')">🔔 Set Reminder</button></div></article>';
+  }).join('');
+  document.getElementById('liveEmpty').classList.toggle('hidden', slice.length>0);
+}
+function switchLive(mode){ liveMode=mode; livePage=0; document.getElementById('tabClasses').classList.toggle('active',mode==='classes'); document.getElementById('tabTests').classList.toggle('active',mode==='tests'); renderLive(); }
+function filterLive(){ livePage=0; renderLive(); }
+function pageLive(d){ livePage+=d; renderLive(); }
+setInterval(function(){ document.querySelectorAll('.countdown').forEach(function(el){ var s=parseInt(el.getAttribute('data-secs'),10)-1; if(s<0)s=0; el.setAttribute('data-secs',s); el.textContent='Live in '+fmt(s); }); },1000);
+renderLive();
+
+/* ---------- Courses ---------- */
+var courses=[
+  {name:'Data Analytics with GenAI', dur:'6 Mon', m1:'5.6 LPA', m1l:'Avg. Salary', m2:'3–5', m2l:'Interviews', price:'₹24,999', mrp:'₹49,999', key:'data analytics genai ai'},
+  {name:'Business Analyst with Google Cloud', dur:'6 Mon', m1:'12 LPA', m1l:'Highest Package', m2:'Next Batch', m2l:'Enrolling Now', price:'₹29,999', mrp:'₹59,999', key:'business analyst google cloud data'},
+  {name:'Data Science with GenAI', dur:'6 Mon', m1:'6.3 LPA', m1l:'Avg. Salary', m2:'5 Seats', m2l:'Left', price:'₹27,999', mrp:'₹54,999', key:'data science genai ai ml'},
+  {name:'Priority Banking Program', dur:'3 Mon', m1:'6.3 LPA', m1l:'Starting Salary', m2:'100%', m2l:'Placement Support', price:'₹19,999', mrp:'₹39,999', key:'bank banking finance ibps sbi'},
+  {name:'Bank Mahapack — Prelims + Mains 2027', dur:'12 Mon', m1:'400+', m1l:'Live Classes', m2:'150+', m2l:'Mock Tests', price:'₹1,499', mrp:'₹5,999', key:'bank ibps sbi clerk po rbi nabard mahapack'},
+  {name:'SSC CGL Foundation Batch 2027', dur:'10 Mon', m1:'500+', m1l:'Live Classes', m2:'200+', m2l:'Mock Tests', price:'₹1,299', mrp:'₹4,999', key:'ssc cgl chsl railways ntpc'},
+  {name:'UPSC CSE Foundation — English + Hindi', dur:'18 Mon', m1:'Daily', m1l:'Current Affairs', m2:'GS + CSAT', m2l:'Full Coverage', price:'₹9,999', mrp:'₹29,999', key:'upsc ias prelims mains polity'},
+  {name:'Railway RRB NTPC Rapid Batch', dur:'6 Mon', m1:'300+', m1l:'Live Classes', m2:'120+', m2l:'Mock Tests', price:'₹999', mrp:'₹3,499', key:'railway rrb ntpc ssc'}
+];
+function renderCourses(list){
+  document.getElementById('courseGrid').innerHTML=(list||courses).map(function(c){
+    return '<article class="course"><h3>'+c.name+'</h3><div class="course-meta"><div><b>'+c.dur.split(' ')[0]+' '+c.dur.split(' ')[1]+'</b><span>Live Class</span></div><div><b>'+c.m1+'</b><span>'+c.m1l+'</span></div><div><b>'+c.m2+'</b><span>'+c.m2l+'</span></div></div><div class="price-row"><b>'+c.price+'</b><s>'+c.mrp+'</s></div><button class="btn btn-grad" onclick="showToast(\''+c.name.replace(/'/g,'')+' — enrolment opens in the full app. Price shown: '+c.price+'\')">Know More</button></article>';
+  }).join('') || '<p class="lead">No course matched your search. Try IBPS PO, SSC CGL, UPSC or Data Analytics.</p>';
+}
+renderCourses();
+function doSearch(e){ e.preventDefault(); var q=document.getElementById('heroSearch').value.trim().toLowerCase(); runSearch(q); return false; }
+function quickSearch(q){ document.getElementById('heroSearch').value=q; runSearch(q.toLowerCase()); document.getElementById('courses').scrollIntoView({behavior:'smooth'}); }
+function runSearch(q){
+  if(!q){ renderCourses(); document.getElementById('searchMsg').textContent=''; return; }
+  var hits=courses.filter(function(c){ return (c.name+' '+c.key).toLowerCase().indexOf(q)>-1 || q.split(' ').some(function(w){ return w.length>2 && (c.name+' '+c.key).toLowerCase().indexOf(w)>-1; }); });
+  renderCourses(hits);
+  document.getElementById('searchMsg').textContent = hits.length ? ('Found '+hits.length+' course'+(hits.length>1?'s':'')+' for "'+q+'" — see Popular Courses below.') : ('No exact course for "'+q+'" yet — showing all popular courses below.');
+  document.getElementById('courses').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- Category tabs ---------- */
+function switchCat(btn){
+  document.querySelectorAll('[data-cat-tab]').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  ['govt','college','private','upsc'].forEach(function(k){ document.getElementById('cat-'+k).classList.toggle('hidden', k!==btn.getAttribute('data-cat-tab')); });
+}
+
+/* ---------- Quiz ---------- */
+var quiz=[
+  {q:'If A : B = 2 : 3 and B : C = 4 : 5, then A : C is:', opts:['2 : 5','8 : 15','3 : 5','4 : 5'], ans:1},
+  {q:'Choose the correctly spelt word:', opts:['Occassion','Occasion','Ocassion','Occassionn'], ans:1},
+  {q:'Who is known as the "Father of the Indian Constitution"?', opts:['Jawaharlal Nehru','Dr. B. R. Ambedkar','Sardar Patel','Dr. Rajendra Prasad'], ans:1},
+  {q:'A train running at 60 km/h crosses a pole in 9 seconds. The length of the train is:', opts:['120 m','150 m','180 m','324 m'], ans:1},
+  {q:'Find the odd one out: 3, 5, 11, 14, 17, 21', opts:['21','14','17','11'], ans:1}
+];
+var qi=0, score=0, answered=false;
+function renderQ(){
+  answered=false;
+  var item=quiz[qi];
+  document.getElementById('quizBar').style.width=((qi)/quiz.length*100)+'%';
+  document.getElementById('quizScore').textContent='Question '+(qi+1)+' of '+quiz.length+(score? ' • Score: '+score:'');
+  document.getElementById('quizNext').disabled=true;
+  document.getElementById('quizNext').textContent = qi===quiz.length-1 ? 'See Result →' : 'Next →';
+  document.getElementById('quizBody').innerHTML='<p style="font-size:18px;font-weight:700;margin:0 0 6px">'+item.q+'</p>'+item.opts.map(function(o,i){ return '<button class="opt" onclick="pick(this,'+i+')">'+String.fromCharCode(65+i)+'. '+o+'</button>'; }).join('');
+}
+function pick(btn,i){
+  if(answered) return; answered=true;
+  var item=quiz[qi];
+  document.querySelectorAll('#quizBody .opt').forEach(function(b,idx){ b.disabled=true; if(idx===item.ans) b.classList.add('correct'); });
+  if(i===item.ans){ score++; } else { btn.classList.add('wrong'); }
+  document.getElementById('quizScore').textContent=(i===item.ans?'Correct! ':'Not quite — correct answer is '+String.fromCharCode(65+item.ans)+'. ')+'Score: '+score+' / '+quiz.length;
+  document.getElementById('quizBar').style.width=((qi+1)/quiz.length*100)+'%';
+  document.getElementById('quizNext').disabled=false;
+}
+function nextQ(){
+  if(qi<quiz.length-1){ qi++; renderQ(); return; }
+  document.getElementById('quizBody').innerHTML='<p style="font-size:22px;font-weight:800;margin:0 0 8px">You scored '+score+' / '+quiz.length+'</p><p style="color:#C7C7C7;margin:0">'+(score>=4?'Excellent — you are exam-ready for today. Keep the streak going with a full mock test.':score>=2?'Good attempt — revise the missed topics and try a sectional test today.':'Every topper started here. Watch a free live class and retry tomorrow.')+'</p>';
+  document.getElementById('quizScore').textContent='Daily Quiz Complete';
+  document.getElementById('quizNext').textContent='↻ Play Again';
+  document.getElementById('quizNext').onclick=function(){ qi=0; score=0; document.getElementById('quizNext').onclick=nextQ; renderQ(); };
+}
+renderQ();
+
+function closeMobileNav(){ document.getElementById('mnav').classList.remove('open'); }
+/* ---------- Login & toast ---------- */
+function openLogin(){ document.getElementById('loginModal').classList.remove('hidden'); }
+function closeLogin(){ document.getElementById('loginModal').classList.add('hidden'); }
+document.getElementById('loginModal').addEventListener('click',function(e){ if(e.target===this) closeLogin(); });
+function submitLogin(){
+  var v=document.getElementById('loginPhone').value.replace(/\D/g,'');
+  var msg=document.getElementById('loginMsg');
+  if(v.length!==10){ msg.style.color='#DC2626'; msg.textContent='Please enter a valid 10-digit mobile number.'; return; }
+  msg.style.color='#16A34A'; msg.textContent='OTP sent (demo) — enter any 4 digits in the app to continue. Welcome to Study247!';
+}
+var toastTimer;
+function showToast(text){ var t=document.getElementById('toast'); t.textContent=text; t.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.add('hidden'); },3600); }
+</script>
+</body>
+</html>
